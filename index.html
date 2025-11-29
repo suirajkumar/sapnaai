@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ultra Premium Birthday Wishes</title>
+    <title>Autoplay Music</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -637,7 +638,7 @@
             overflow: hidden;
         }
 
-        .photo-frame::before {
+       .photo-frame::before {
             content: '';
             position: absolute;
             top: 0;
@@ -928,19 +929,19 @@
             <h1>Pop the Balloons! 🎈</h1>
         
         <div class="balloons-container">
-            <div class="balloon" onclick="popBalloon(this, 'You')">
+            <div class="balloon" onclick="popBalloon'You'">
                 <div class="string"></div>
             </div>
-            <div class="balloon" onclick="popBalloon(this, 'Are')">
+            <div class="balloon" onclick="popBalloon'Are'">
                 <div class="string"></div>
             </div>
-            <div class="balloon" onclick="popBalloon(this, 'A')">
+            <div class="balloon" onclick="popBalloon'A'">
                 <div class="string"></div>
             </div>
-            <div class="balloon" onclick="popBalloon(this, 'Super')">
+            <div class="balloon" onclick="popBalloon'Super'">
                 <div class="string"></div>
             </div>
-            <div class="balloon" onclick="popBalloon(this, 'Cutie')">
+            <div class="balloon" onclick="popBalloon'Cutie'">
                 <div class="string"></div>
             </div>
         </div>
@@ -1535,6 +1536,98 @@
             }, 2000);
         }
 
+        //popBalloon
+        function popBalloon(balloon, text) {
+            if (balloon.classList.contains('popped')) return;
+            
+            // Add popped class and show text
+            balloon.classList.add('popped');
+            balloon.textContent = text;
+            
+            // Add to popped messages
+            poppedMessages.push(text);
+            
+            // Create confetti effect
+            createConfetti();
+            
+            // Update message
+            poppedCount++;
+            updateMessage();
+            
+            // Play pop sound (you can add actual sound file)
+            playPopSound();
+        }
+
+        function updateMessage() {
+            const messageElement = document.getElementById('message');
+            
+            if (poppedCount === totalBalloons) {
+                messageElement.innerHTML = "🎉 Complete Message: <strong>" + poppedMessages.join(' ') + "! 🎉</strong>";
+                createConfetti();
+            } else {
+                messageElement.textContent = "Popped: " + poppedMessages.join(' ') + " ...";
+            }
+        }
+
+        function resetBalloons() {
+            const balloons = document.querySelectorAll('.balloon');
+            balloons.forEach(balloon => {
+                balloon.classList.remove('popped');
+                balloon.textContent = '';
+            });
+            
+            poppedCount = 0;
+            poppedMessages = [];
+            document.getElementById('message').textContent = "Click on balloons to reveal the message!";
+        }
+
+        function createConfetti() {
+            const colors = ['#FF6B6B', '#4ECDC4', '#FFD166', '#06D6A0', '#118AB2', '#FF9E6B'];
+            for (let i = 0; i < 15; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 2 + 1) + 's';
+                confetti.style.animationDelay = Math.random() * 1 + 's';
+                document.body.appendChild(confetti);
+                
+                // Remove confetti after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+            }
+        }
+
+        function playPopSound() {
+            // In a real implementation, you would play an actual sound file
+            // For now, we'll just log to console
+            console.log("Pop sound played!");
+            
+            // Example with Web Audio API for a simple pop sound:
+            /*
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(200, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.2);
+            
+            gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.2);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.2);
+            */
+        }
+
+        // Initialize some confetti on load
+        window.onload = function() {
+            createConfetti();
+        };
         // Open gift function
         function openGift() {
             const giftMessage = document.getElementById('giftMessage');
@@ -1545,7 +1638,7 @@
         // Countdown function
         function startCountdown() {
             const countdownElement = document.getElementById('countdown');
-            let count = 5;
+            let count = 10;
 
             const countdownInterval = setInterval(() => {
                 countdownElement.textContent = count;
@@ -1583,21 +1676,31 @@
             createFireworks();
         }
 
-        // Music controls
-        musicToggle.addEventListener('click', function () {
-            if (musicPlaying) {
-                music.pause();
-                musicToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
-                musicPlaying = false;
-            } else {
-                music.play().catch(e => {
-                    console.log("Audio play failed:", e);
-                });
-                musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
-                musicPlaying = true;
-            }
-        });
+        // Autoplay music on page load
+            audio.play().catch(error => {
+                console.log('Autoplay prevented:', error);
+            });
 
+            // Toggle music play/pause
+            musicToggle.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play();
+                    musicToggle.innerHTML = '♪';
+                } else {
+                    audio.pause();
+                    musicToggle.innerHTML = '♪';
+                }
+            });
+
+            // Update button text based on music state
+            audio.addEventListener('play', function() {
+                musicToggle.innerHTML = '♪';
+            });
+
+            audio.addEventListener('pause', function() {
+                musicToggle.innerHTML = '♪';
+            });
+        });
         // Enable audio on first user interaction
         document.body.addEventListener('click', function () {
             initializeAudio();
