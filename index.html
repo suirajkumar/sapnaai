@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Birthday Wishes by your friend suraj bhai</title>
+    <title>Ultra Premium Birthday Wishes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -102,10 +102,6 @@
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        .fancy-text {
-            font-family: 'Dancing Script', cursive;
-            font-size: 30px;
-            
         .message-container {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
@@ -367,198 +363,119 @@
             flex-wrap: wrap;
         }
 
-        body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
-        }
-
-        .container {
-            text-align: center;
-            padding: 20px;
-        }
-
-        h1 {
-            color: white;
-            margin-bottom: 30px;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .balloons-container {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-
         .balloon {
-            width: 100px;
-            height: 120px;
+            width: 80px;
+            height: 100px;
             border-radius: 50%;
             position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-            animation: float 4s ease-in-out infinite;
-            box-shadow: inset -10px -10px 20px rgba(0,0,0,0.2);
+            animation: float 8s ease-in-out infinite;
+            box-shadow: inset -8px -8px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .balloon:hover {
-            transform: scale(1.1);
+        .balloon:nth-child(1) {
+            background: radial-gradient(circle at 30% 30%, #FF5252, #B71C1C);
+            animation-delay: 0s;
         }
 
-        .balloon::after {
+        .balloon:nth-child(2) {
+            background: radial-gradient(circle at 30% 30%, #4CAF50, #1B5E20);
+            animation-delay: 1s;
+        }
+
+        .balloon:nth-child(3) {
+            background: radial-gradient(circle at 30% 30%, #2196F3, #0D47A1);
+            animation-delay: 2s;
+        }
+
+        .balloon:nth-child(4) {
+            background: radial-gradient(circle at 30% 30%, #FFEB3B, #F57F17);
+            animation-delay: 3s;
+        }
+
+        .balloon:nth-child(5) {
+            background: radial-gradient(circle at 30% 30%, #9C27B0, #4A148C);
+            animation-delay: 4s;
+        }
+
+        .balloon:after {
             content: '';
             position: absolute;
-            bottom: -20px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             width: 0;
             height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 25px solid rgba(0,0,0,0.2);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 20px solid rgba(0, 0, 0, 0.2);
         }
 
         .string {
             position: absolute;
-            bottom: -50px;
+            bottom: -60px;
             left: 50%;
             transform: translateX(-50%);
             width: 2px;
-            height: 50px;
-            background: rgba(255,255,255,0.7);
+            height: 60px;
+            background: rgba(255, 255, 255, 0.7);
         }
-
-        /* Balloon Colors */
-        .balloon:nth-child(1) {
-            background: radial-gradient(circle at 30% 30%, #FF6B6B, #C73636);
-            animation-delay: 0s;
-        }
-        .balloon:nth-child(2) {
-            background: radial-gradient(circle at 30% 30%, #4ECDC4, #2A8C87);
-            animation-delay: 0.5s;
-        }
-        .balloon:nth-child(3) {
-            background: radial-gradient(circle at 30% 30%, #FFD166, #D4A946);
-            animation-delay: 1s;
-        }
-        .balloon:nth-child(4) {
-            background: radial-gradient(circle at 30% 30%, #06D6A0, #048A64);
-            animation-delay: 1.5s;
-        }
-        .balloon:nth-child(5) {
-            background: radial-gradient(circle at 30% 30%, #118AB2, #0B5D78);
-            animation-delay: 2s;
-        }
-
-        /* Text Styles */
-        .balloon.popped {
-            font-size: 1.8rem;
-            animation: pop 0.5s ease-out forwards;
-        }
-
-        .balloon:nth-child(1).popped { font-family: 'Arial Black', sans-serif; }
-        .balloon:nth-child(2).popped { font-family: 'Georgia', serif; font-style: italic; }
-        .balloon:nth-child(3).popped { font-family: 'Verdana', sans-serif; font-weight: bold; }
-        .balloon:nth-child(4).popped { font-family: 'Courier New', monospace; font-weight: bold; }
-        .balloon:nth-child(5).popped { font-family: 'Comic Sans MS', cursive; }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-30px) rotate(5deg);
+            }
+
+            66% {
+                transform: translateY(-20px) rotate(-5deg);
+            }
         }
 
-        @keyframes pop {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-            100% { transform: scale(1); }
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 40px 0;
+            flex-wrap: wrap;
         }
 
-        .message {
-            color: white;
-            font-size: 1.5rem;
-            margin-top: 30px;
-            min-height: 40px;
-            font-weight: bold;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-
-        .reset-btn {
-            background: #FF6B6B;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1.1rem;
-            border-radius: 25px;
-            cursor: pointer;
-            margin-top: 20px;
+        .step-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .reset-btn:hover {
-            background: #FF5252;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        .step-dot.active {
+            background: var(--accent);
+            transform: scale(1.3);
+            box-shadow: 0 0 15px var(--accent);
         }
 
         .confetti {
             position: fixed;
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             opacity: 0.8;
-            animation: confettiFall 3s linear forwards;
-            z-index: -1;
+            animation: confettiFall 5s linear infinite;
+            z-index: 1;
         }
 
         @keyframes confettiFall {
-            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-        }
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .balloons-container {
-                gap: 15px;
-            }
-            .balloon {
-                width: 80px;
-                height: 100px;
-            }
-            .balloon.popped {
-                font-size: 1.4rem;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .balloons-container {
-                gap: 10px;
-            }
-            .balloon {
-                width: 65px;
-                height: 85px;
-            }
-            .balloon.popped {
-                font-size: 1.1rem;
-            }
-            h1 {
-                font-size: 1.7rem;
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
             }
         }
 
@@ -801,19 +718,25 @@
 </head>
 
 <body>
+    <div class="music-controls">
+        <div class="music-btn" id="musicToggle">
+            <i class="fas fa-volume-up"></i>
+        </div>
+    </div>
+
     <div class="container">
         <!-- Step 1: Name Input -->
         <div class="step active" id="step1">
-            <div class="fancy-text">Birthday Wishes by your friend suraj bhai</div>
-            <h1>ℍ𝕒𝕡𝕡𝕪 𝕓𝕚𝕣𝕥𝕙𝕕𝕒𝕪</h1>
+            <div class="logo">BirthdayWish Pro</div>
+            <h1>ℍ𝕒𝕡𝕡𝕪 𝕓𝕚𝕣𝕥𝕙𝕕𝕒𝕪!</h1>
 
             <div class="message-container">
-                <div class="message">Welcome to your personalized birthday celebration!</div>
-                <div class="message">Let's make your day extra special with amazing surprises.</div>
+                <div class="Great Vibes">birthday celebration by suraj bhai</div>
+                <div class="Great Vibes">Let's make your day extra special with amazing surprises.</div>
             </div>
 
             <div class="input-container">
-                <input type="fancy-text" class="name-input" id="birthdayNameInput" placeholder=" Plese Enter your name here">
+                <input type="fancy-text" class="name-input" id="birthdayNameInput" placeholder="Enter your name here">
             </div>
 
             <button class="btn" onclick="startCelebration()">
@@ -853,7 +776,7 @@
             </div>
 
             <button class="btn" onclick="nextStep(3)">
-                °♡✧*cᴏꪦ𝓉ⁱꪦ𝓾ⲉ*✧♡° <i class="fas fa-arrow-right"></i>
+                Continue <i class="fas fa-arrow-right"></i>
             </button>
 
             <div class="step-indicator">
@@ -1023,8 +946,8 @@
             <h1>Memory Frame</h1>
             <div class="birthday-person" id="displayName6">Friend</div>
 
-            <div class="C:\Users\hp\Downloads\ChatGPT Image Nov 29, 2025, 09_12_35 AM.png">
-                
+            <div class="photo-frame">
+                <img src="ChatGPT Image Nov 29, 2025, 09_12_35 AM.png"alt="ChatGPT Image Nov 29, 2025, 09_12_35 AM.png">
             </div>
 
             <div class="message-container">
@@ -1033,7 +956,7 @@
             </div>
 
             <button class="btn" onclick="nextStep(7)">
-                °♡✧*cᴏꪦ𝓉ⁱꪦ𝓾ⲉ*✧♡° <i class="fas fa-arrow-right"></i>
+                Continue <i class="fas fa-arrow-right"></i>
             </button>
 
             <div class="step-indicator">
@@ -1068,7 +991,7 @@
             </div>
 
             <button class="btn" onclick="nextStep(8)">
-                °♡✧*cᴏꪦ𝓉ⁱꪦ𝓾ⲉ*✧♡° <i class="fas fa-arrow-right"></i>
+                ❝✧cʘⁿԵϊₙ𝚞ꫀ💘❀ <i class="fas fa-arrow-right"></i>
             </button>
 
             <div class="step-indicator">
@@ -1163,11 +1086,11 @@
             <div class="birthday-person" id="displayName10">Friend</div>
 
             <div class="message-container">
-                <div  class="fancy-text">"The more you praise and celebrate your life, the more there is in life to
+                <div class="fancy-text">"The more you praise and celebrate your life, the more there is in life to
                     celebrate." - Oprah Winfrey</div>
-                <div  class="fancy-text">"Today you are you! That is truer than true! There is no one alive who is you-er
+                <div class="fancy-text">"Today you are you! That is truer than true! There is no one alive who is you-er
                     than you!" - Dr. Seuss</div>
-                <div  class="fancy-text">"Your birthday is the first day of another 365-day journey. Be the shining thread
+                <div class="fancy-text">"Your birthday is the first day of another 365-day journey. Be the shining thread
                     in the beautiful tapestry of the world to make this year the best ever."</div>
             </div>
 
@@ -1200,10 +1123,10 @@
             <div class="birthday-person" id="displayName11">Friend</div>
 
             <div class="message-container">
-                <div  class="fancy-text">Your birthday horoscope for this year:</div>
-                <div  class="fancy-text">This year will bring you unexpected opportunities and joyful surprises.</div>
-                <div  class="fancy-text">Your positive energy will attract wonderful people and experiences.</div>
-                <div  class="fancy-text">Great achievements are waiting for you just around the corner!</div>
+                <div class="fancy-text">Your birthday horoscope for this year:</div>
+                <div class="fancy-text">This year will bring you unexpected opportunities and joyful surprises.</div>
+                <div class="fancy-text">Your positive energy will attract wonderful people and experiences.</div>
+                <div class="fancy-text">Great achievements are waiting for you just around the corner!</div>
             </div>
 
             <button class="btn" onclick="nextStep(12)">
@@ -1244,7 +1167,7 @@
             </div>
 
             <button class="btn" onclick="nextStep(13)">
-                °♡✧*cᴏꪦ𝓉ⁱꪦ𝓾ⲉ*✧♡° <i class="fas fa-arrow-right"></i>
+                ❝✧cʘⁿԵϊₙ𝚞ꫀ💘❀ <i class="fas fa-arrow-right"></i>
             </button>
 
             <div class="step-indicator">
@@ -1272,12 +1195,12 @@
             <div class="birthday-person" id="displayName13">Friend</div>
 
             <div class="message-container">
-                <div  class="fancy-text">Your ultimate birthday playlist:</div>
-                <div class="fancy-text">🎵 Happy Birthday - Stevie Wonder</div>
-                <div class="fancy-text">🎵 Celebration - Kool & The Gang</div>
-                <div class="fancy-text">🎵 Birthday - The Beatles</div>
-                <div class="fancy-text">🎵 It's My Party - Lesley Gore</div>
-                <div class="fancy-text">🎵 24K Magic - Bruno Mars</div>
+                <div class="message">Your ultimate birthday playlist:</div>
+                <div class="message">🎵 Happy Birthday - Stevie Wonder</div>
+                <div class="message">🎵 Celebration - Kool & The Gang</div>
+                <div class="message">🎵 Birthday - The Beatles</div>
+                <div class="message">🎵 It's My Party - Lesley Gore</div>
+                <div class="message">🎵 24K Magic - Bruno Mars</div>
             </div>
 
             <button class="btn" onclick="nextStep(14)">
@@ -1309,14 +1232,14 @@
             <div class="birthday-person" id="displayName14">Friend</div>
 
             <div class="message-container">
-                <div class="fancy-text">Let's raise a virtual toast!</div>
+                <div class="message">Let's raise a virtual toast!</div>
                 <div class="message">🥂 🎉 🥳</div>
-                <div class="fancy-text">Here's to you and your amazing journey ahead!</div>
-                <div class="fancy-text">May your life be filled with love, laughter, and endless blessings!</div>
+                <div class="message">Here's to you and your amazing journey ahead!</div>
+                <div class="message">May your life be filled with love, laughter, and endless blessings!</div>
             </div>
 
             <button class="btn" onclick="nextStep(15)">
-                °♡✧*cᴏꪦ𝓉ⁱꪦ𝓾ⲉ*✧♡° <i class="fas fa-arrow-right"></i>
+                ❝✧cʘⁿԵϊₙ𝚞ꫀ💘❀ <i class="fas fa-arrow-right"></i>
             </button>
 
             <div class="step-indicator">
@@ -1340,7 +1263,7 @@
 
         <!-- Step 15: Final Celebration -->
         <div class="step" id="step15">
-            <h1>꧁༒ℍ𝕒𝕡𝕡𝕪 𝕓𝕚𝕣𝕥𝕙𝕕𝕒𝕪 ♛ℕ𝕒𝕟𝕕𝕒𝕟𝕚♛༒꧂</h1>
+            <h1>꧁༒♛ℍ𝕒𝕡𝕡𝕪 𝕓𝕚𝕣𝕥𝕙𝕕𝕒𝕪 ℕ𝕒𝕟𝕕𝕒𝕟𝕚♛༒꧂</h1>
             <div class="birthday-person" id="displayName15">Friend</div>
 
             <div class="message-container">
@@ -1380,7 +1303,7 @@
     </div>
 
     <audio id="birthdayMusic" loop>
-        <source src="https://youtu.be/wN6DCKCQ7X4?si=Jq6xDLK7gVSv8QqL">
+        <source src="https://youtu.be/wN6DCKCQ7X4?si=G8kxroPyPKPMEV7j-mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
