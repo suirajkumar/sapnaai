@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultra Premium Birthday Wishes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        :root {
+            --primary: #8A2BE2;
+            --secondary: #FF6B6B;
+            --accent: #4ECDC4;
+            --gold: #FFD700;
+            --dark: #1A1A2E;
+            --light: #F8F9FA;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--dark), #16213E);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            z-index: 10;
+        }
+
+        .step {
+            display: none;
+            animation: fadeIn 1s ease;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+            animation: glow 2s infinite alternate;
+            background: linear-gradient(45deg, var(--gold), #FFA500, #FF6347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            }
+
+            to {
+                text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 165, 0, 0.6);
+            }
+        }
+
+        .birthday-person {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: var(--gold);
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .message-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+        }
+
+        .message {
+            font-size: 1.6rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+            font-weight: 500;
+        }
+
+        .message:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .message:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        .message:nth-child(3) {
+            animation-delay: 0.9s;
+        }
+
+        .message:nth-child(4) {
+            animation-delay: 1.2s;
+        }
+
+        .message:nth-child(5) {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .input-container {
+            margin: 30px 0;
+        }
+
+        .name-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 18px 25px;
+            font-size: 1.4rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .name-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 5px 20px rgba(78, 205, 196, 0.4);
+        }
+
+        .name-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, var(--accent), #26C6DA);
+        }
+
+        .cake-container {
+            margin: 40px 0;
+            position: relative;
+            height: 280px;
+        }
+
+        .cake {
+            position: relative;
+            width: 240px;
+            height: 160px;
+            margin: 0 auto;
+        }
+
+        .layer {
+            position: absolute;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .base {
+            width: 240px;
+            height: 80px;
+            background: linear-gradient(45deg, #FFB6C1, #FF69B4);
+            bottom: 0;
+        }
+
+        .middle {
+            width: 200px;
+            height: 70px;
+            background: linear-gradient(45deg, #FF69B4, #FF1493);
+            bottom: 80px;
+            left: 20px;
+        }
+
+        .top {
+            width: 160px;
+            height: 60px;
+            background: linear-gradient(45deg, #FF1493, #DC143C);
+            bottom: 150px;
+            left: 40px;
+        }
+
+        .candle {
+            position: absolute;
+            width: 14px;
+            height: 60px;
+            background: linear-gradient(to bottom, #FFF, var(--gold));
+            bottom: 210px;
+            left: 113px;
+            border-radius: 7px;
+        }
+
+        .flame {
+            position: absolute;
+            width: 20px;
+            height: 40px;
+            background: radial-gradient(var(--gold), #FF8C00, #FF4500);
+            border-radius: 50% 50% 20% 20%;
+            bottom: 270px;
+            left: 110px;
+            animation: flicker 0.8s infinite alternate;
+            box-shadow: 0 0 20px #FFA500, 0 0 30px #FF8C00;
+        }
+
+        @keyframes flicker {
+
+            0%,
+            100% {
+                transform: scaleY(1) translateY(0);
+                opacity: 0.9;
+            }
+
+            50% {
+                transform: scaleY(1.1) translateY(-5px);
+                opacity: 1;
+            }
+        }
+
+        .decoration {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .decoration:nth-child(1) {
+            bottom: 40px;
+            left: 40px;
+        }
+
+        .decoration:nth-child(2) {
+            bottom: 40px;
+            right: 40px;
+        }
+
+        .decoration:nth-child(3) {
+            bottom: 90px;
+            left: 60px;
+        }
+
+        .decoration:nth-child(4) {
+            bottom: 90px;
+            right: 60px;
+        }
+
+        .decoration:nth-child(5) {
+            bottom: 140px;
+            left: 80px;
+        }
+
+        .decoration:nth-child(6) {
+            bottom: 140px;
+            right: 80px;
+        }
+
+        .balloons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .balloon {
+            width: 80px;
+            height: 100px;
+            border-radius: 50%;
+            position: relative;
+            animation: float 8s ease-in-out infinite;
+            box-shadow: inset -8px -8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .balloon:nth-child(1) {
+            background: radial-gradient(circle at 30% 30%, #FF5252, #B71C1C);
+            animation-delay: 0s;
+        }
+
+        .balloon:nth-child(2) {
+            background: radial-gradient(circle at 30% 30%, #4CAF50, #1B5E20);
+            animation-delay: 1s;
+        }
+
+        .balloon:nth-child(3) {
+            background: radial-gradient(circle at 30% 30%, #2196F3, #0D47A1);
+            animation-delay: 2s;
+        }
+
+        .balloon:nth-child(4) {
+            background: radial-gradient(circle at 30% 30%, #FFEB3B, #F57F17);
+            animation-delay: 3s;
+        }
+
+        .balloon:nth-child(5) {
+            background: radial-gradient(circle at 30% 30%, #9C27B0, #4A148C);
+            animation-delay: 4s;
+        }
+
+        .balloon:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 20px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .string {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-30px) rotate(5deg);
+            }
+
+            66% {
+                transform: translateY(-20px) rotate(-5deg);
+            }
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .step-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .step-dot.active {
+            background: var(--accent);
+            transform: scale(1.3);
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        .confetti {
+            position: fixed;
+            width: 14px;
+            height: 14px;
+            opacity: 0.8;
+            animation: confettiFall 5s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .gift-box {
+            width: 180px;
+            height: 180px;
+            margin: 30px auto;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .gift-box:hover {
+            transform: scale(1.08);
+        }
+
+        .gift-lid {
+            width: 180px;
+            height: 50px;
+            background: linear-gradient(45deg, #FF416C, #FF4B2B);
+            border-radius: 12px 12px 0 0;
+            position: absolute;
+            top: 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .gift-body {
+            width: 180px;
+            height: 130px;
+            background: linear-gradient(45deg, #FF4B2B, #FF416C);
+            border-radius: 0 0 12px 12px;
+            position: absolute;
+            bottom: 0;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .ribbon {
+            position: absolute;
+            background: var(--gold);
+        }
+
+        .ribbon-h {
+            width: 180px;
+            height: 25px;
+            top: 75px;
+        }
+
+        .ribbon-v {
+            width: 25px;
+            height: 130px;
+            left: 77.5px;
+            bottom: 0;
+        }
+
+        .bow {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 50%;
+            top: 62.5px;
+            left: 65px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+            animation: pulse 2s infinite;
+        }
+
+        .photo-frame {
+            width: 320px;
+            height: 220px;
+            margin: 30px auto;
+            border: 20px solid var(--gold);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-size: 1.4rem;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.2));
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        .music-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .music-btn {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .music-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1);
+        }
+
+        .fireworks {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 50px #FFD700;
+            animation: firework 2s ease-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes firework {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(var(--tx), var(--ty));
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .birthday-person {
+                font-size: 2.2rem;
+            }
+
+            .message {
+                font-size: 1.4rem;
+            }
+
+            .cake {
+                transform: scale(0.85);
+            }
+
+            .balloons {
+                gap: 25px;
+            }
+
+            .balloon {
+                width: 65px;
+                height: 85px;
+            }
+
+            .gift-box {
+                transform: scale(0.85);
+            }
+
+            .photo-frame {
+                width: 280px;
+                height: 190px;
+            }
+
+            .btn {
+                padding: 16px 30px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .birthday-person {
+                font-size: 1.8rem;
+            }
+
+            .message {
+                font-size: 1.2rem;
+            }
+
+            .cake {
+                transform: scale(0.75);
+            }
+
+            .balloons {
+                gap: 15px;
+            }
+
+            .balloon {
+                width: 55px;
+                height: 75px;
+            }
+
+            .gift-box {
+                transform: scale(0.75);
+            }
+
+            .photo-frame {
+                width: 240px;
+                height: 160px;
+            }
+
+            .btn {
+                padding: 14px 25px;
+                font-size: 1.1rem;
+            }
+
+            .name-input {
+                padding: 15px 20px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="music-controls">
+        <div class="music-btn" id="musicToggle">
+            <i class="fas fa-volume-up"></i>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Step 1: Name Input -->
+        <div class="step active" id="step1">
+            <div class="logo">BirthdayWish Pro</div>
+            <h1>Happy Birthday!</h1>
+
+            <div class="message-container">
+                <div class="message">Welcome to your personalized birthday celebration!</div>
+                <div class="message">Let's make your day extra special with amazing surprises.</div>
+            </div>
+
+            <div class="input-container">
+                <input type="text" class="name-input" id="birthdayNameInput" placeholder="Enter your name here">
+            </div>
+
+            <button class="btn" onclick="startCelebration()">
+                Start Celebration <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <div class="step-indicator">
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+        </div>
+
+        <!-- Step 2: Birthday Wishes -->
+        <div class="step" id="step2">
+            <h1>Special Wishes</h1>
+            <div class="birthday-person" id="displayName">Friend</div>
+
+            <div class="message-container">
+                <div class="message">On your special day, we wish you happiness that knows no bounds!</div>
+                <div class="message">May your life be filled with joy, success, and wonderful moments.</div>
+                <div class="message">You deserve all the love and happiness in the world today and always.</div>
+                <div class="message">May this year bring you closer to your dreams and aspirations.</div>
+                <div class="message">Celebrate your uniqueness and the amazing person you are!</div>
+            </div>
+
+            <button class="btn" onclick="nextStep(3)">
+                Continue <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+        </div>
+
+        <!-- Step 3: Cake Celebration -->
+        <div class="step" id="step3">
+            <h1>Make a Wish!</h1>
+            <div class="birthday-person" id="displayName3">Friend</div>
+
+            <div class="cake-container">
+                <div class="cake">
+                    <div class="layer base"></div>
+                    <div class="layer middle"></div>
+                    <div class="layer top"></div>
+                    <div class="candle"></div>
+                    <div class="flame"></div>
+                    <div class="decoration"></div>
+                    <div class="decoration"></div>
+                    <div class="decoration"></div>
+                    <div class="decoration"></div>
+                    <div class="decoration"></div>
+                    <div class="decoration"></div>
+                </div>
+            </div>
+
+            <div class="message-container">
+                <div class="message">Blow out the candles and make a wish!</div>
+                <div class="message">Your birthday cake is waiting for your special wish to come true.</div>
+            </div>
+
+            <button class="btn" onclick="blowCandles()">
+                Blow Candles <i class="fas fa-wind"></i>
+            </button>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+        </div>
+
+        <!-- Step 4: Balloons -->
+        <div class="step" id="step4">
+            <h1>Colorful Balloons</h1>
+            <div class="birthday-person" id="displayName4">Friend</div>
+
+            <div class="balloons">
+                <div class="balloon">
+                    <div class="string"></div>
+                    you
+                </div>
+                <div class="balloon">
+                    <div class="string"></div>
+                    are
+                </div>
+                <div class="balloon">
+                    <div class="string"></div>
+                    a
+                </div>
+                <div class="balloon">
+                    <div class="string"></div>
+                    super
+                </div>
+                <div class="balloon">
+                    <div class="string"></div>
+                    cutipices
+                </div>
+            </div>
+
+            <div class="message-container">
+                <div class="message">Colorful balloons to brighten your special day!</div>
+                <div class="message">Each balloon carries a wish for happiness, health, love, and success.</div>
+            </div>
+
+            <button class="btn" onclick="nextStep(5)">
+                Continue <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+        </div>
+
+        <!-- Step 5: Gift -->
+        <div class="step" id="step5">
+            <h1>A Special Gift</h1>
+            <div class="birthday-person" id="displayName5">Friend</div>
+
+            <div class="gift-box" onclick="openGift()">
+                <div class="gift-lid"></div>
+                <div class="gift-body">
+                    <div class="ribbon ribbon-h"></div>
+                    <div class="ribbon ribbon-v"></div>
+                    <div class="bow"></div>
+                </div>
+            </div>
+
+            <div class="message-container">
+                <div class="message">Here's a special gift for you on your birthday!</div>
+                <div class="message">Click on the gift box to reveal your surprise.</div>
+                <div class="message" id="giftMessage" style="display: none;">The real gift is the love and appreciation
+                    we have for you! You're an amazing person!</div>
+            </div>
+
+            <button class="btn" onclick="nextStep(6)">
+                Continue <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+        </div>
+
+        <!-- Step 6: Photo Frame -->
+        <div class="step" id="step6">
+            <h1>Memory Frame</h1>
+            <div class="birthday-person" id="displayName6">Friend</div>
+
+            <div class="photo-frame">
+                Your Photo Here
+            </div>
+
+            <div class="message-container">
+                <div class="message">This frame is for your favorite birthday memory!</div>
+                <div class="message">Capture this moment and cherish it forever.</div>
+            </div>
+
+            <button class="btn" onclick="nextStep(7)">
+                Continue <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+        </div>
+
+        <!-- Step 7: Friends Wishes -->
+        <div class="step" id="step7">
+            <h1>Friends' Wishes</h1>
+            <div class="birthday-person" id="displayName7">Friend</div>
+
+            <div class="message-container">
+                <div class="message">Your friends have some special wishes for you!</div>
+                <div class="message">"Wishing you endless laughter and joy on your special day!" - Alex</div>
+                <div class="message">"May your birthday be as amazing as you are!" - Sam</div>
+                <div class="message">"Here's to another year of wonderful memories together!" - Taylor</div>
+            </div>
+
+            <button class="btn" onclick="nextStep(8)">
+                Continue <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+        </div>
+
+        <!-- Step 8: Birthday Countdown -->
+        <div class="step" id="step8">
+            <h1>Birthday Countdown</h1>
+            <div class="birthday-person" id="displayName8">Friend</div>
+
+            <div class="message-container">
+                <div class="message">Let's count down to your special moment!</div>
+                <div class="message" id="countdown">5</div>
+            </div>
+
+            <button class="btn" onclick="startCountdown()">
+                Start Countdown <i class="fas fa-hourglass-start"></i>
+            </button>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+        </div>
+
+        <!-- Step 9: Virtual Party -->
+        <div class="step" id="step9">
+            <h1>Virtual Party</h1>
+            <div class="birthday-person" id="displayName9">Friend</div>
+
+            <div class="message-container">
+                <div class="message">Let's have a virtual dance party!</div>
+                <div class="message">🎉 🎊 💃 🕺 🎉 🎊</div>
+                <div class="message">Dance like nobody's watching!</div>
+            </div>
+
+            <button class="btn" onclick="nextStep(10)">
+                Continue <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+        </div>
+
+        <!-- Step 10: Birthday Quotes -->
+        <div class="step" id="step10">
+            <h1>Inspirational Quotes</h1>
+            <div class="birthday-person" id="displayName10">Friend</div>
+
+            <div class="message-container">
+                <div class="message">"The more you praise and celebrate your life, the more there is in life to
+                    celebrate." - Oprah Winfrey</div>
+                <div class="message">"Today you are you! That is truer than true! There is no one alive who is you-er
+                    than you!" - Dr. Seuss</div>
+                <div class="message">"Your birthday is the first day of another 365-day journey. Be the shining thread
+                    in the beautiful tapestry of the world to make this year the best ever."</div>
+            </div>
+
+            <button class="btn" onclick="nextStep(11)">
+                Continue <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+        </div>
+
+        <!-- Step 11: Birthday Horoscope -->
+        <div class="step" id="step11">
+            <h1>Birthday Horoscope</h1>
+            <div class="birthday-person" id="displayName11">Friend</div>
+
+            <div class="message-container">
+                <div class="message">Your birthday horoscope for this year:</div>
+                <div class="message">This year will bring you unexpected opportunities and joyful surprises.</div>
+                <div class="message">Your positive energy will attract wonderful people and experiences.</div>
+                <div class="message">Great achievements are waiting for you just around the corner!</div>
+            </div>
+
+            <button class="btn" onclick="nextStep(12)">
+                Continue <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+        </div>
+
+        <!-- Step 12: Birthday Resolutions -->
+        <div class="step" id="step12">
+            <h1>Birthday Resolutions</h1>
+            <div class="birthday-person" id="displayName12">Friend</div>
+
+            <div class="message-container">
+                <div class="message">Make this year amazing with these resolutions:</div>
+                <div class="message">• Try something new every month</div>
+                <div class="message">• Spend more time with loved ones</div>
+                <div class="message">• Practice gratitude daily</div>
+                <div class="message">• Take care of your mental and physical health</div>
+                <div class="message">• Chase your dreams fearlessly</div>
+            </div>
+
+            <button class="btn" onclick="nextStep(13)">
+                Continue <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+        </div>
+
+        <!-- Step 13: Birthday Playlist -->
+        <div class="step" id="step13">
+            <h1>Birthday Playlist</h1>
+            <div class="birthday-person" id="displayName13">Friend</div>
+
+            <div class="message-container">
+                <div class="message">Your ultimate birthday playlist:</div>
+                <div class="message">🎵 Happy Birthday - Stevie Wonder</div>
+                <div class="message">🎵 Celebration - Kool & The Gang</div>
+                <div class="message">🎵 Birthday - The Beatles</div>
+                <div class="message">🎵 It's My Party - Lesley Gore</div>
+                <div class="message">🎵 24K Magic - Bruno Mars</div>
+            </div>
+
+            <button class="btn" onclick="nextStep(14)">
+                Continue <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+        </div>
+
+        <!-- Step 14: Birthday Toast -->
+        <div class="step" id="step14">
+            <h1>Birthday Toast</h1>
+            <div class="birthday-person" id="displayName14">Friend</div>
+
+            <div class="message-container">
+                <div class="message">Let's raise a virtual toast!</div>
+                <div class="message">🥂 🎉 🥳</div>
+                <div class="message">Here's to you and your amazing journey ahead!</div>
+                <div class="message">May your life be filled with love, laughter, and endless blessings!</div>
+            </div>
+
+            <button class="btn" onclick="nextStep(15)">
+                Continue <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+            </div>
+        </div>
+
+        <!-- Step 15: Final Celebration -->
+        <div class="step" id="step15">
+            <h1>Happy Birthday!</h1>
+            <div class="birthday-person" id="displayName15">Friend</div>
+
+            <div class="message-container">
+                <div class="message">We hope you've enjoyed this special birthday celebration!</div>
+                <div class="message">May your day be as wonderful as you are.</div>
+                <div class="message">Wishing you a year filled with joy, success, and beautiful memories.</div>
+                <div class="message">Thank you for celebrating with us!</div>
+                <div class="message">Happy Birthday once again!</div>
+            </div>
+
+            <button class="btn" onclick="restartCelebration()">
+                Restart <i class="fas fa-redo"></i>
+            </button>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot active"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        Made with <i class="fas fa-heart" style="color: #FF1493;"></i> for your special day!
+    </div>
+
+    <audio id="birthdayMusic" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-happy-birthday-to-you-443.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Initialize variables
+        let currentStep = 1;
+        const totalSteps = 15;
+        const music = document.getElementById('birthdayMusic');
+        const musicToggle = document.getElementById('musicToggle');
+        let musicPlaying = false;
+        let userName = "Friend";
+        let audioContextInitialized = false;
+
+        // Create confetti
+        function createConfetti() {
+            const colors = ['#FFD700', '#FF5252', '#4CAF50', '#2196F3', '#FFEB3B', '#FF1493', '#8A2BE2'];
+            for (let i = 0; i < 80; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(confetti);
+
+                // Remove confetti after animation completes
+                setTimeout(() => {
+                    if (confetti.parentNode) {
+                        confetti.remove();
+                    }
+                }, 7000);
+            }
+        }
+
+        // Create fireworks
+        function createFireworks() {
+            for (let i = 0; i < 20; i++) {
+                const firework = document.createElement('div');
+                firework.className = 'fireworks';
+                firework.style.left = Math.random() * 100 + 'vw';
+                firework.style.top = Math.random() * 100 + 'vh';
+                firework.style.setProperty('--tx', (Math.random() - 0.5) * 200 + 'px');
+                firework.style.setProperty('--ty', (Math.random() - 0.5) * 200 + 'px');
+                document.body.appendChild(firework);
+
+                // Remove firework after animation completes
+                setTimeout(() => {
+                    if (firework.parentNode) {
+                        firework.remove();
+                    }
+                }, 2000);
+            }
+        }
+
+        // Initialize audio context for autoplay
+        function initializeAudio() {
+            if (audioContextInitialized) return;
+
+            // Create a silent audio buffer and play it to unlock audio
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            const audioContext = new AudioContext();
+
+            // Create an empty buffer
+            const buffer = audioContext.createBuffer(1, 1, 22050);
+            const source = audioContext.createBufferSource();
+            source.buffer = buffer;
+            source.connect(audioContext.destination);
+            source.start();
+
+            audioContextInitialized = true;
+            console.log("Audio context initialized");
+        }
+
+        // Start celebration
+        function startCelebration() {
+            const nameInput = document.getElementById('birthdayNameInput');
+            if (nameInput.value.trim() !== '') {
+                userName = nameInput.value.trim();
+            }
+
+            // Update all name displays
+            document.querySelectorAll('.birthday-person').forEach(el => {
+                el.textContent = userName;
+            });
+
+            // Initialize audio and start music
+            initializeAudio();
+
+            // Start music with a small delay to ensure audio context is ready
+            setTimeout(() => {
+                music.play().then(() => {
+                    console.log("Music started successfully");
+                    musicPlaying = true;
+                    musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+                }).catch(e => {
+                    console.log("Audio play failed:", e);
+                    // If autoplay fails, show a message to user
+                    alert("Please click the music button to start the birthday song!");
+                });
+            }, 500);
+
+            // Move to next step
+            nextStep(2);
+
+            // Create initial effects
+            createConfetti();
+            createFireworks();
+        }
+
+        // Step navigation
+        function nextStep(step) {
+            document.getElementById(`step${currentStep}`).classList.remove('active');
+            currentStep = step;
+            document.getElementById(`step${currentStep}`).classList.add('active');
+            updateStepIndicator();
+
+            // Special effects for certain steps
+            if (step === 3 || step === 8 || step === 15) {
+                createConfetti();
+                createFireworks();
+            }
+
+            // Auto-advance after a delay for some steps
+            if (step === 7 || step === 10 || step === 12) {
+                setTimeout(() => {
+                    if (currentStep === step) {
+                        nextStep(step + 1);
+                    }
+                }, 5000);
+            }
+        }
+
+        function updateStepIndicator() {
+            const dots = document.querySelectorAll('.step-dot');
+            dots.forEach((dot, index) => {
+                if (index === currentStep - 1) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Blow candles function
+        function blowCandles() {
+            const flame = document.querySelector('.flame');
+            flame.style.animation = 'none';
+            flame.style.opacity = '0';
+            createConfetti();
+            createFireworks();
+
+            setTimeout(() => {
+                nextStep(4);
+            }, 2000);
+        }
+
+        // Open gift function
+        function openGift() {
+            const giftMessage = document.getElementById('giftMessage');
+            giftMessage.style.display = 'block';
+            createConfetti();
+        }
+
+        // Countdown function
+        function startCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            let count = 5;
+
+            const countdownInterval = setInterval(() => {
+                countdownElement.textContent = count;
+                count--;
+
+                if (count < 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.textContent = "Happy Birthday!";
+                    createConfetti();
+                    createFireworks();
+
+                    setTimeout(() => {
+                        nextStep(9);
+                    }, 2000);
+                }
+            }, 1000);
+        }
+
+        // Restart celebration
+        function restartCelebration() {
+            document.getElementById(`step${currentStep}`).classList.remove('active');
+            currentStep = 1;
+            document.getElementById(`step${currentStep}`).classList.add('active');
+            updateStepIndicator();
+
+            // Reset candles
+            const flame = document.querySelector('.flame');
+            flame.style.animation = 'flicker 0.8s infinite alternate';
+            flame.style.opacity = '1';
+
+            // Hide gift message
+            document.getElementById('giftMessage').style.display = 'none';
+
+            createConfetti();
+            createFireworks();
+        }
+
+        // Music controls
+        musicToggle.addEventListener('click', function () {
+            if (musicPlaying) {
+                music.pause();
+                musicToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                musicPlaying = false;
+            } else {
+                music.play().catch(e => {
+                    console.log("Audio play failed:", e);
+                });
+                musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+                musicPlaying = true;
+            }
+        });
+
+        // Enable audio on first user interaction
+        document.body.addEventListener('click', function () {
+            initializeAudio();
+        }, { once: true });
+
+        // Initial effects
+        window.onload = function () {
+            createConfetti();
+        };
+    </script>
+</body>
+
+</html>
